@@ -11,12 +11,12 @@
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
-        Pass
+        Pass // 1
         {
             ZTest LEqual
             ZWrite Off
             ColorMask 0
-            Cull Back 
+            Cull Back
 
             Stencil
             {
@@ -42,7 +42,7 @@
             ENDCG
         }
 
-        Pass
+        Pass //2
         {
             ZTest LEqual
             ZWrite Off
@@ -72,7 +72,7 @@
             #include "./Pass/BaseCG.cginc"
             ENDCG
         }
-         Pass
+         Pass //3
         {
             ZTest Greater
             ZWrite On
