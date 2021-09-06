@@ -8,6 +8,9 @@
         _Metallic ("Metallic", Range(0,1)) = 0.0
 		_MovementDir("MovementDir",Vector)=(0,0,0,0)
 		_MainPlayerPos("MainPlayerPos",Vector)=(0,0,0,0)
+        [IntRange] _SelectBushId("SelectBushId",Range(1,255)) = 129
+        [IntRange] _SelectBushIdPlus("SelectBushIdPlus",Range(1,255)) = 130
+        
     }
     SubShader
     {
@@ -24,10 +27,10 @@
 			Cull Back
             Stencil
             {
-                Ref 128
-                ReadMask 255
+                Ref [_SelectBushIdPlus] 
+                ReadMask 255 
                 WriteMask 127
-                Comp Less
+                Comp Equal
                 Pass DecrSat
                 ZFail DecrSat
             }
@@ -56,10 +59,10 @@
 
             Stencil
             {
-                Ref 128
+                Ref [_SelectBushId]
                 ReadMask 255
                 WriteMask 127
-                Comp LEqual
+                Comp Equal
                 Pass IncrSat
                 ZFail Keep
             }
@@ -84,10 +87,10 @@
 
             Stencil
             {
-                Ref 128
+                Ref [_SelectBushIdPlus]
                 ReadMask 255
                 WriteMask 127
-                Comp Less
+                Comp Equal
                 Pass DecrSat
                 ZFail Keep
             }

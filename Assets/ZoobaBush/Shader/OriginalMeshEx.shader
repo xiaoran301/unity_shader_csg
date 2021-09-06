@@ -6,6 +6,7 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        [IntRange] _BushId("BushId",Range(1,255)) = 129
     }
     SubShader
     {
@@ -19,9 +20,9 @@
 
         Stencil
         {
-            Ref 128
+            Ref [_BushId]
             ReadMask 255
-            WriteMask 128
+            WriteMask [_BushId]
             Comp Always
             Pass Replace
             ZFail Keep
