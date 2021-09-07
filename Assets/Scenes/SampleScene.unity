@@ -1315,6 +1315,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987070571}
   m_Mesh: {fileID: -951608786083511892, guid: 15a4153cf1ba54cff951d5a766728232, type: 3}
+--- !u!1 &1991618925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 778321894559381450, guid: b455f7e914dae405c8134d9571bcaca7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6677894687669633454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2016755587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1559,11 @@ PrefabInstance:
       propertyPath: _inside
       value: 
       objectReference: {fileID: 6677894687669633456}
+    - target: {fileID: 778321895449102318, guid: b455f7e914dae405c8134d9571bcaca7,
+        type: 3}
+      propertyPath: _caps
+      value: 
+      objectReference: {fileID: 1991618925}
     - target: {fileID: 778321895449102319, guid: b455f7e914dae405c8134d9571bcaca7,
         type: 3}
       propertyPath: m_Radius

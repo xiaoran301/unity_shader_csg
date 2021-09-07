@@ -8,11 +8,15 @@ public class ZoobaBushEffect : MonoBehaviour
 {
     public GameObject _bushEffect;
 
+    public GameObject _caps;
     public GameObject _inside;
     public AnimationCurve _curve;
     public int InOthersShareView;
     
+    private Material _matCaps;
     private Material _mat;
+ 
+ 
     private float _accTime = 0.0f;
     private bool _exiting = false;
     private bool _entering = false;
@@ -26,6 +30,7 @@ public class ZoobaBushEffect : MonoBehaviour
     {
         _parentTrans = transform.parent;
         _oldPos = _parentTrans.position;
+        _matCaps = _caps.GetComponent<Renderer>().material;
         _mat = _inside.GetComponent<Renderer>().material;
     }
 
@@ -85,7 +90,18 @@ public class ZoobaBushEffect : MonoBehaviour
             _accTime = 0;
             _exiting = false;
             _entering = true;
+
+            var mat = other.gameObject.GetComponent<Renderer>().material;
+            var id = mat.GetInt("_BushId");
+            SetSelectBushId(id);
         }
+    }
+
+    private void SetSelectBushId(int id)
+    {
+       _matCaps.SetInt("_SelectBushId",id); 
+       _mat.SetInt("_SelectBushId",id); 
+       _mat.SetInt("_SelectBushIdPlus",id+1); 
     }
     private void OnTriggerExit(Collider other)
     {
